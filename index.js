@@ -1,21 +1,31 @@
 const employee = {name: 'Bob', streetAddress: '708 Anderson Ave.'};
 
-function updateEmployeeWithKeyAndValue(employee, name, streetAddress) {
+function updateEmployeeWithKeyAndValue(employee, name, newName) {
   const updateEmployee = {...employee};
-  updateEmployee[name] = streetAddress;
+  updateEmployee[name] = newName;
   return updateEmployee;
 }
 
-// console.log(employee);
-
-// const updateEmployee = updateEmployeeWithKeyAndValue(employee, "Sam", "800 Park Ave");
-// console.log(updateEmployee); 
-
-
-function destructivelyUpdateEmployeeWithKeyAndValue(employee, name, streetAddress){
-  employee[name] = streetAddress;
+function destructivelyUpdateEmployeeWithKeyAndValue(employee, streetAddress, newStreetAddress){
+  employee[streetAddress] = newStreetAddress;
   return employee;
 };
 
-// destructivelyUpdateEmployeeWithKeyAndValue(employee, "Gabby", "2368 S. Whittmore");
-// console.log(employee); 
+function deleteFromEmployeeByKey(employee, streetAddress) {
+  const deleteEmployee = {...employee};
+  delete deleteEmployee[streetAddress];
+  return deleteEmployee;
+};
+
+
+//------------ console logging lives here --------------// 
+console.log("original: ", employee);
+
+const updatedEmployee = updateEmployeeWithKeyAndValue(employee, 'name', "cinderella");
+console.log("updated: ", updatedEmployee);
+
+const destructEmployee = destructivelyUpdateEmployeeWithKeyAndValue(employee, 'streetAddress', "800 Park Ave");
+console.log("destructively update street: ", employee);
+
+const deleteEmployee = deleteFromEmployeeByKey(employee, 'streetAddress');
+console.log("Employee after deletion:", deleteEmployee);
