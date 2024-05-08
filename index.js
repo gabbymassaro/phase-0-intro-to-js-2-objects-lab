@@ -4,7 +4,7 @@ function updateEmployeeWithKeyAndValue(employee, name, newName) {
   const updateEmployee = {...employee};
   updateEmployee[name] = newName;
   return updateEmployee;
-}
+};
 
 function destructivelyUpdateEmployeeWithKeyAndValue(employee, streetAddress, newStreetAddress){
   employee[streetAddress] = newStreetAddress;
